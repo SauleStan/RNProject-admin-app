@@ -45,13 +45,14 @@ const DATA = [
     },
 ];
 
-function MessagesScreen() {
+function MessagesScreen({ navigation }) {
 
     const renderItem = ({ item }) => (
         <MessageCard
             fName={item.fName}
             lName={item.lName}
             pet={item.pet.title}
+            onPress={()=> navigation.navigate('Message Details')}
         />
     );
 

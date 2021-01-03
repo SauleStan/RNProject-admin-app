@@ -1,14 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-import ButtonComponent from './ButtonComponent';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 function MessageCard(props) {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity style={styles.container} onPress={props.onPress}>
             <Text style={styles.titleText}>{props.fName} {props.lName}</Text>
             <Text style={styles.descriptionText}>About: {props.pet}</Text>
-        </View>
+        </TouchableOpacity>
     );
 }
 
