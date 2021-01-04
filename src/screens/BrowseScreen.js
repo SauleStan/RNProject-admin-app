@@ -22,6 +22,7 @@ function BrowseScreen({ navigation }) {
             title={item.title}
             age={item.age}
             breed={item.breed}
+            image={item.image}
             onPressEdit={() => { navigation.navigate('Edit Screen', { petData: item }) }}
             onPressDelete={() => {
                 deletePet(item.id);

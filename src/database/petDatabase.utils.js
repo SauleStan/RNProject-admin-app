@@ -22,6 +22,7 @@ async function fetchData() {
                     title: documentSnapshot.data().title,
                     age: documentSnapshot.data().age,
                     breed: documentSnapshot.data().breed,
+                    image: documentSnapshot.data().image,
                 }
                 petData.push(item);
             });
@@ -36,10 +37,26 @@ function addPet(props) {
             {
                 title: props.title,
                 age: props.age,
-                breed: props.breed
+                breed: props.breed,
+                image: props.image
             }
         )
         .then(()=>{console.log(`Pet added!`)})
+}
+
+function editPet(props) {
+    db
+        .collection('pets')
+        .doc(props.id)
+        .update(
+            {
+                title: props.title,
+                age: props.age,
+                breed: props.breed,
+                image: props.image
+            }
+        )
+        .then(()=>{console.log(`Pet edited!`)})
 }
 
 function deletePet(id) {
@@ -50,4 +67,4 @@ function deletePet(id) {
         .then(()=>{console.log(`Pet deleted!`)})
 }
 
-export { fetchData, addPet, deletePet };
+export { fetchData, addPet, deletePet, editPet };

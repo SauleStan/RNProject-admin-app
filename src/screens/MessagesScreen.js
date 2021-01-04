@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, StatusBar, SafeAreaView, FlatList } from 'react-native';
+import { StyleSheet, StatusBar, SafeAreaView, FlatList, Text } from 'react-native';
 
 import MessageCard from '../components/MessageCard';
 import { fetchMessageData } from '../database/messageDatabase.utils';
@@ -30,6 +30,8 @@ function MessagesScreen({ navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text style={styles.titleText}>Messages</Text>
+
             <FlatList
                 data={data}
                 renderItem={renderItem}
@@ -49,6 +51,11 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#222130',
         justifyContent: 'flex-start',
+    },
+    titleText: {
+        fontSize: 24,
+        color: 'white',
+        textAlign: 'center',
     },
 });
 

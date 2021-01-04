@@ -1,14 +1,17 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 import ButtonComponent from './ButtonComponent';
 
 function ItemCard(props) {
     return (
         <View style={styles.container}>
-            {/* TODO: Make an image display instead of text */}
-            <Text style={styles.image}></Text>
-            {/*  */}
+            <Image
+                    style={styles.image}
+                    source={{
+                        uri: props.image,
+                    }}
+                />
 
             <Text style={styles.titleText}>{props.title}</Text>
             <Text style={styles.descriptionText}>{props.age} • {props.breed}</Text>
@@ -42,8 +45,8 @@ const styles = StyleSheet.create({
         height: 160,
         width: '80%',
         borderRadius: 15,
-        borderWidth: 5,
-        // borderColor: '#58cdd1',
+        borderWidth: 3,
+        borderColor: 'black',
         backgroundColor: "white"
     },
     titleText: {

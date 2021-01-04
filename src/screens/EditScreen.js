@@ -3,8 +3,9 @@ import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { TextInput } from 'react-native';
 
 import ButtonComponent from '../components/ButtonComponent';
+import { editPet } from '../database/petDatabase.utils';
 
-function EditScreen({ route }) {
+function EditScreen({ route, navigation }) {
     const { petData } = route.params;
 
     const [title, onChangeTitleText] = useState(petData.title);
@@ -50,6 +51,15 @@ function EditScreen({ route }) {
             />
             <ButtonComponent
                 buttonName="CONFIRM"
+                onPress={() => { editPet({
+                    id: petData.id,
+                    title: title,
+                    age: age,
+                    breed: breed,
+                    image: image,
+                });
+                navigation.navigate('Browse');
+            }}
             />
         </View>
     );
