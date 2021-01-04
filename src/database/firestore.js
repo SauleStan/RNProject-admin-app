@@ -42,4 +42,12 @@ function addPet(props) {
         .then(()=>{console.log(`Pet added!`)})
 }
 
-export { fetchData, addPet };
+function deletePet(id) {
+    db
+        .collection('pets')
+        .doc(id)
+        .delete()
+        .then(()=>{console.log(`Pet deleted!`)})
+}
+
+export { fetchData, addPet, deletePet };

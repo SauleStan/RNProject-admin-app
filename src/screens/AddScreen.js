@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { TextInput } from 'react-native';
-import { addPet } from '../data/firestore';
+import { addPet } from '../database/firestore';
 
 import ButtonComponent from '../components/ButtonComponent';
 
