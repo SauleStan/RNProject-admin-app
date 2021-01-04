@@ -36,6 +36,7 @@ function BrowseScreen({ navigation }) {
             age={item.age}
             breed={item.breed}
             onPressEdit={() => { navigation.navigate('Edit Screen', { petData: item }) }}
+            onPressDelete={() => { console.log(`delete ${item.title}`)}}
         />
     );
 

@@ -14,7 +14,7 @@ function ItemCard(props) {
             <Text style={styles.descriptionText}>{props.age} • {props.breed}</Text>
             <View style={styles.buttonArea}>
                 <ButtonComponent buttonName="EDIT" onPress={props.onPressEdit}/>
-                <ButtonComponent buttonName="X" />
+                <ButtonComponent buttonName="X" onPress={props.onPressDelete}/>
             </View>
         </View>
     );

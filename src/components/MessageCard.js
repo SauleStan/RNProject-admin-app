@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-around',
         alignItems: 'flex-start',
         color: 'white',
-        width: '80%',
+        width: '100%',
         marginTop: 10,
         marginBottom: 10,
         paddingLeft: 5,
@@ -28,15 +28,6 @@ const styles = StyleSheet.create({
         borderRightColor: 'rgba(235, 25, 110, 0.7)',
         borderLeftColor: '#58cdd1',
         borderWidth: 5,
-    },
-    image: {
-        marginTop: 15,
-        height: 160,
-        width: '80%',
-        borderRadius: 15,
-        borderWidth: 5,
-        // borderColor: '#58cdd1',
-        backgroundColor: "white"
     },
     titleText: {
         fontSize: 24,
