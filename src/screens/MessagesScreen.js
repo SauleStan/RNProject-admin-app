@@ -52,7 +52,9 @@ function MessagesScreen({ navigation }) {
             fName={item.fName}
             lName={item.lName}
             pet={item.pet.title}
-            onPress={()=> navigation.navigate('Message Details')}
+            onPress={()=> navigation.navigate('Message Details', {
+                message: item
+            })}
         />
     );
 

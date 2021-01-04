@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, Text, View } from 'react-native';
 
-function MessageDetailsScreen() {
+function MessageDetailsScreen({ route }) {
+
+    const { message } = route.params;
 
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.titleText}>Message Details</Text>
             <View style={styles.messageContainer}>
-                
+                <Text style={styles.messageText}>From: {message.fName} {message.lName}</Text>
+                <Text style={styles.messageText}>Email: {message.email}</Text>
+                <Text style={styles.messageText}>Phone: {message.phone}</Text>
+                <Text style={styles.messageText}>Other: {message.other}</Text>
+                <Text style={styles.messageText}>About: {message.pet.title} ({message.pet.id})</Text>
             </View>
             <StatusBar
                 barStyle="light-content"
@@ -46,6 +52,10 @@ const styles = StyleSheet.create({
         fontSize: 24,
         color: 'white',
     },
+    messageText: {
+        fontSize: 14,
+        color: 'white',
+    }
 });
 
 export default MessageDetailsScreen;
