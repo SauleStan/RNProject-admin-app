@@ -13,7 +13,7 @@ function ItemCard(props) {
             <Text style={styles.titleText}>{props.title}</Text>
             <Text style={styles.descriptionText}>{props.age} • {props.breed}</Text>
             <View style={styles.buttonArea}>
-                <ButtonComponent buttonName="EDIT" />
+                <ButtonComponent buttonName="EDIT" onPress={props.onPressEdit}/>
                 <ButtonComponent buttonName="X" />
             </View>
         </View>

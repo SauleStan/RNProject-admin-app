@@ -9,29 +9,33 @@ const DATA = [
         id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
         title: 'Bunny',
         age: "Adult",
-        breed: "Hwite"
+        breed: "Hwite",
+        image: ""
     },
     {
         id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
         title: 'Sqwrl',
         age: "Baby",
-        breed: "Chestnut"
+        breed: "Chestnut",
+        image: ""
     },
     {
         id: '58694a0f-3da1-471f-bd96-145571e29d72',
         title: 'Bunny 2',
         age: "Adult",
-        breed: "Blakk"
+        breed: "Blakk",
+        image: ""
     },
 ];
 
-function BrowseScreen() {
+function BrowseScreen({ navigation }) {
 
     const renderItem = ({ item }) => (
         <ItemCard
             title={item.title}
             age={item.age}
             breed={item.breed}
+            onPressEdit={() => { navigation.navigate('Edit Screen', { petData: item }) }}
         />
     );
 
