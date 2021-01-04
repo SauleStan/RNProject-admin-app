@@ -2,6 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
+import { LogBox } from 'react-native';
 
 import BrowseScreen from './src/screens/BrowseScreen';
 import MessagesScreen from './src/screens/MessagesScreen';
@@ -33,11 +34,13 @@ function Browse() {
       }}>
       <Stack.Screen name="Browse" component={BrowseScreen} />
       <Stack.Screen name="Edit Screen" component={EditScreen} />
+      <Stack.Screen name="Add" component={AddScreen} />
     </Stack.Navigator>
   );
 }
 
 export default function App() {
+  LogBox.ignoreAllLogs();
   return (
     <NavigationContainer>
       <Tab.Navigator

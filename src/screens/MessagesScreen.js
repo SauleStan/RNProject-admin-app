@@ -5,6 +5,7 @@ import MessageCard from '../components/MessageCard';
 
 const DATA = [
     {
+        id: "1",
         fName: "Name",
         lName: "Surname",
         phone: "123",
@@ -18,6 +19,7 @@ const DATA = [
         }
     },
     {
+        id: "2",
         fName: "Name1",
         lName: "Surname1",
         phone: "1234",
@@ -31,6 +33,7 @@ const DATA = [
         }
     },
     {
+        id: "3",
         fName: "Name2",
         lName: "Surname2",
         phone: "12345",

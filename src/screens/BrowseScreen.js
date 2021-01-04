@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, FlatList } from 'react-native';
 
 import ItemCard from '../components/ItemCard';
-
+import { fetchData } from '../data/firestore';
 
 const DATA = [
     {
@@ -29,6 +29,17 @@ const DATA = [
 ];
 
 function BrowseScreen({ navigation }) {
+    const [data, onChangeData] = useState([]);
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            fetchData().then((result) => {
+                onChangeData(result);
+                // console.log(data);
+            });
+        });
+        return unsubscribe;
+    }, [navigation]);
 
     const renderItem = ({ item }) => (
         <ItemCard
@@ -36,14 +47,14 @@ function BrowseScreen({ navigation }) {
             age={item.age}
             breed={item.breed}
             onPressEdit={() => { navigation.navigate('Edit Screen', { petData: item }) }}
-            onPressDelete={() => { console.log(`delete ${item.title}`)}}
+            onPressDelete={() => { console.log(`delete ${item.title}`) }}
         />
     );
 
     return (
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={DATA}
+                data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
             />

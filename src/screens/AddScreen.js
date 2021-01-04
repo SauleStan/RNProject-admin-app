@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import { TextInput } from 'react-native';
+import { addPet } from '../data/firestore';
 
 import ButtonComponent from '../components/ButtonComponent';
 
-function AddScreen() {
+function AddScreen({ navigation }) {
     const [title, onChangeTitleText] = useState();
     const [age, onChangeAgeText] = useState();
     const [breed, onChangeBreed] = useState();
     const [image, onChangeImage] = useState();
+
+    const onPress = () => {
+        addPet({
+            title: title,
+            age: age,
+            breed: breed
+        });
+
+        onChangeTitleText(null);
+        onChangeAgeText(null);
+        onChangeBreed(null);
+        onChangeImage(null);
+
+        navigation.navigate('Browse');
+    }
 
     return (
         <View style={styles.container}>
@@ -48,6 +64,7 @@ function AddScreen() {
             />
             <ButtonComponent
                 buttonName="CONFIRM"
+                onPress={onPress}
             />
         </View>
     );
