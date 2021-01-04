@@ -7,7 +7,6 @@ async function fetchMessageData() {
         .get()
         .then(querySnapshot => {
             querySnapshot.forEach(documentSnapshot => {
-                // console.log('id:', documentSnapshot.id, documentSnapshot.data());
                 let item = {
                     id: documentSnapshot.id,
                     fName: documentSnapshot.data().fName,
@@ -26,25 +25,6 @@ async function fetchMessageData() {
             });
         });
     return messageData;
-}
-
-function addMessage(props) {
-    db
-        .collection('messages')
-        .add(
-            {
-                // TODO: add data
-            }
-        )
-        .then(() => { console.log(`Message added!`) })
-}
-
-function deleteMessage(id) {
-    db
-        .collection('messages')
-        .doc(id)
-        .delete()
-        .then(() => { console.log(`Message deleted!`) })
 }
 
 export { fetchMessageData };

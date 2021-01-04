@@ -28,7 +28,6 @@ function BrowseScreen({ navigation }) {
                 deletePet(item.id);
                 fetchData().then((result) => {
                     onChangeData(result);
-                    // console.log(data);
                 });
             }}
         />
