@@ -8,14 +8,10 @@ function MessagesScreen({ navigation }) {
     const [data, onChangeData] = useState([]);
 
     useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            fetchMessageData().then((result) => {
-                onChangeData(result);
-                // console.log(data);
-            });
+        fetchMessageData().then((result) => {
+            onChangeData(result);
         });
-        return unsubscribe;
-    }, [navigation]);
+    }, [navigation, data]);
 
     const renderItem = ({ item }) => (
         <MessageCard

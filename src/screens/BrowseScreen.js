@@ -8,14 +8,10 @@ function BrowseScreen({ navigation }) {
     const [data, onChangeData] = useState([]);
 
     useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            fetchData().then((result) => {
-                onChangeData(result);
-                // console.log(data);
-            });
+        fetchData().then((result) => {
+            onChangeData(result);
         });
-        return unsubscribe;
-    }, [navigation]);
+    }, [navigation, data]);
 
     const renderItem = ({ item }) => (
         <ItemCard
