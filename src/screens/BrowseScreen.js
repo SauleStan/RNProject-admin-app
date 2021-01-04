@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { StyleSheet, StatusBar, SafeAreaView, FlatList } from 'react-native';
 
 import ItemCard from '../components/ItemCard';
-import { fetchData, deletePet } from '../database/firestore';
+import { fetchData, deletePet } from '../database/petDatabase.utils';
 
 function BrowseScreen({ navigation }) {
     const [data, onChangeData] = useState([]);
